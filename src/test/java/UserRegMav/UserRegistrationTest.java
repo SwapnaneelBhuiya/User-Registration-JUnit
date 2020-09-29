@@ -25,4 +25,9 @@ public class UserRegistrationTest {
 	{
 		Assert.assertTrue(ob.emailValidity("ashok.kumar@gmail.com"));
 	}
+	@Test
+	public void checkValidMobileNumber()
+	{
+		Assert.assertTrue(ob.validMobileNumber("91 9831081745"));
+	}
 }

@@ -38,4 +38,11 @@ public class UserRegMain {
 			return false;
 		}
 	}
+
+	public boolean validMobileNumber(String number) {
+		if(number.matches("^[0-9]{2}\\s{1}[1-9]{1}[0-9]{9}"))
+			return true;
+		else
+			return false;
+	}
 }
