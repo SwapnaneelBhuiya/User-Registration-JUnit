@@ -15,4 +15,14 @@ public class UserRegistrationTest {
 	{
 		Assert.assertTrue(ob.validFirstName("Ashok"));
 	}
+	@Test
+	public void checkLastName()
+	{
+		Assert.assertTrue(ob.validLastName("Kumar"));
+	}
+	@Test
+	public void checkValidEmail()
+	{
+		Assert.assertTrue(ob.emailValidity("ashok.kumar@gmail.com"));
+	}
 }

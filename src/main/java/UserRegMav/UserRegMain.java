@@ -18,4 +18,24 @@ public class UserRegMain {
 			return false;
 		}
 	}
+
+	public boolean validLastName(String last) {
+		if(last.matches("^[A-Z]{1}[a-z]{2,}"))
+		{
+			return true;
+		}
+		else
+		{
+			return false;
+		}
+	}
+
+	public boolean emailValidity(String email) {
+		if(email.matches("^(abc)[_+.-]{0,1}[a-zA-Z]*[@]{1}(bridgelabz|gmail|yahoo)[.]{1}(co|com|net)[.]{0,1}[a-z]{0,2}"))
+			return true;			
+		else
+		{
+			return false;
+		}
+	}
 }
