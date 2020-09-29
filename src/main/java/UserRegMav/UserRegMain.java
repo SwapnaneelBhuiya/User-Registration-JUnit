@@ -47,7 +47,7 @@ public class UserRegMain {
 	}
 
 	public boolean validPassword(String pass) {
-		if(pass.matches("[A-Z]+")&&pass.length()>=8)
+		if(pass.matches("[A-Z]+[0-9]+")&&pass.length()>=8)
 			return true;
 		else
 			return false;
