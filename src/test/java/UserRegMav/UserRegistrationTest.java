@@ -30,4 +30,9 @@ public class UserRegistrationTest {
 	{
 		Assert.assertTrue(ob.validMobileNumber("91 9831081745"));
 	}
+	@Test
+	public void checkPassword()
+	{
+		Assert.assertTrue(ob.validPassword("fafafafafa"));
+	}
 }

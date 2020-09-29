@@ -45,4 +45,11 @@ public class UserRegMain {
 		else
 			return false;
 	}
+
+	public boolean validPassword(String pass) {
+		if(pass.length()>=8)
+			return true;
+		else
+			return false;
+	}
 }
