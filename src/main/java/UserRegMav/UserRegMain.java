@@ -8,9 +8,7 @@ public class UserRegMain {
 
 	public boolean validFirstName(String first) {
 		if(first.matches("^[A-Z]{1}[a-z]{2,}"))
-		
 		return true;
-		
 		else
 		return false;
 		
