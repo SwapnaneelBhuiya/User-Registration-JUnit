@@ -4,46 +4,59 @@
 package UserRegMav;
 
 public class UserRegMain {
-	public static int c=0;
-
-	public boolean validFirstName(String first) {
+	
+	public boolean validFirstName(String first) throws UserRegException{
+		checkNullEmpty(first);
 		if(first.matches("^[A-Z]{1}[a-z]{2,}"))
 		return true;
 		else
-		return false;
+			throw new UserRegException(UserRegException.ExceptionType.INVALID_FIRSTNAME, "Enter proper first name");
 		
 	}
+	public void checkNullEmpty(String st) throws UserRegException
+	{
+		if(st.length()==0)
+			throw new UserRegException(UserRegException.ExceptionType.ENTERED_EMPTY, "Enter proper user input");
+		if(st.equals(null))
+			throw new UserRegException(UserRegException.ExceptionType.ENTERED_NULL, "Enter proper user input");
 
-	public boolean validLastName(String last) {
+	}
+
+	public boolean validLastName(String last) throws UserRegException{
+		checkNullEmpty(last);
 		if(last.matches("^[A-Z]{1}[a-z]{2,}"))
 		return true;
 		
 		else
-		return false;
+			throw new UserRegException(UserRegException.ExceptionType.INVALID_LASTNAME, "Enter proper last name");
 		
 	}
 
-	public boolean emailValidity(String email) {
+	public boolean emailValidity(String email) throws UserRegException{
+		checkNullEmpty(email);
 		if(email.matches("^(abc)[_+.-]{0,1}[a-zA-Z]*[@]{1}(bridgelabz|gmail|yahoo|abc)[.]{1}(co|com|net)[.]{0,1}[a-z]{0,2}"))
 		return true;		
 		else
-		return false;
+			throw new UserRegException(UserRegException.ExceptionType.INVALID_EMAIL, "Enter proper email");
 		
 	}
 
-	public boolean validMobileNumber(String number) {
+	public boolean validMobileNumber(String number) throws UserRegException {
+		checkNullEmpty(number);
 		if(number.matches("^[0-9]{2}\\s{1}[1-9]{1}[0-9]{9}"))
 			return true;
 			
 		else
-			return false;
+			throw new UserRegException(UserRegException.ExceptionType.INVALID_MOBILE, "Enter proper mobile number");
 	}
 
-	public boolean validPassword(String pass) {
+	public boolean validPassword(String pass) throws UserRegException{
+		checkNullEmpty(pass);
+
 		if(pass.matches("[A-Z]+[a-z]*[0-9]+[_.+-]{1}")&&pass.length()>=8)
 			return true;
 		else
-			return false;
+			throw new UserRegException(UserRegException.ExceptionType.INVALID_PASSWORD, "Enter proper password");
 	}
 	
 }

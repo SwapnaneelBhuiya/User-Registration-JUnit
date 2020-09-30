@@ -26,14 +26,19 @@ public class ParameterUser {
 	@Parameterized.Parameters
 	public static Collection emails()
 	{
-		return Arrays.asList(new Object[] {"abc@yahoo.com", "abc-100@yahoo.com", "abc.100@yahoo.com", "abc111@abc.com", "abc-100@abc.net",
-				"abc.100@abc.com.au", "abc@1.com", "abc@gmail.com.com", "abc+100@gmail.com"});
+		return Arrays.asList(new Object[][] {{"abc@yahoo.com",true}, {"abc-100@yahoo.com",true}, {"abc.100@yahoo.com",true}, {"abc111@abc.com",true}, {"abc-100@abc.net",true},
+			{"abc.100@abc.com.au",true}, {"abc@1.com",true}, {"abc@gmail.com.com",true}, {"abc+100@gmail.com",true}});
 		
 	}
 	@Test
-	public void checkEmail()
+	public void checkEmail() throws UserRegException
 	{
+		try {
 		Assert.assertEquals(expectedres, user.emailValidity(email));
+		}
+		catch(Exception e)
+		{
+		}
 	}
 
 }
