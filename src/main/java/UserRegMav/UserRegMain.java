@@ -4,52 +4,48 @@
 package UserRegMav;
 
 public class UserRegMain {
-    public boolean someLibraryMethod() {
-        return true;
-    }
+	public static int c=0;
 
 	public boolean validFirstName(String first) {
 		if(first.matches("^[A-Z]{1}[a-z]{2,}"))
-		{
-			return true;
-		}
+		
+		return true;
+		
 		else
-		{
-			return false;
-		}
+		return false;
+		
 	}
 
 	public boolean validLastName(String last) {
 		if(last.matches("^[A-Z]{1}[a-z]{2,}"))
-		{
-			return true;
-		}
+		return true;
+		
 		else
-		{
-			return false;
-		}
+		return false;
+		
 	}
 
 	public boolean emailValidity(String email) {
 		if(email.matches("^(abc)[_+.-]{0,1}[a-zA-Z]*[@]{1}(bridgelabz|gmail|yahoo|abc)[.]{1}(co|com|net)[.]{0,1}[a-z]{0,2}"))
-			return true;			
+		return true;		
 		else
-		{
-			return false;
-		}
+		return false;
+		
 	}
 
 	public boolean validMobileNumber(String number) {
 		if(number.matches("^[0-9]{2}\\s{1}[1-9]{1}[0-9]{9}"))
 			return true;
+			
 		else
 			return false;
 	}
 
 	public boolean validPassword(String pass) {
-		if(pass.matches("[A-Z]+[0-9]+[_.+-]{1}")&&pass.length()>=8)
+		if(pass.matches("[A-Z]+[a-z]*[0-9]+[_.+-]{1}")&&pass.length()>=8)
 			return true;
 		else
 			return false;
 	}
+	
 }

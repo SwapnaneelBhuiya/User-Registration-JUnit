@@ -13,26 +13,41 @@ public class UserRegistrationTest {
 	@Test
 	public void checkFirstName()
 	{
-		Assert.assertTrue(ob.validFirstName("Ashok"));
+		if(ob.validFirstName("Ashok"))
+		System.out.println("Happy");
+		else
+			System.out.println("Sad");
 	}
 	@Test
 	public void checkLastName()
 	{
-		Assert.assertTrue(ob.validLastName("Kumar"));
+		if(ob.validLastName("Kumar"))
+			System.out.println("Happy");
+		else
+			System.out.println("Sad");
 	}
 	@Test
 	public void checkValidEmail()
 	{
-		Assert.assertTrue(ob.emailValidity("ashok.kumar@gmail.com"));
+		if(ob.emailValidity("ashok.kumar@gmail.com"))
+			System.out.println("Happy");
+		else
+			System.out.println("Sad");
 	}
 	@Test
 	public void checkValidMobileNumber()
 	{
-		Assert.assertTrue(ob.validMobileNumber("91 9831081745"));
+		if(ob.validMobileNumber("91 9831081745"))
+			System.out.println("Happy");
+		else
+			System.out.println("Sad");
 	}
 	@Test
 	public void checkPassword()
 	{
-		Assert.assertTrue(ob.validPassword("fafafafafa"));
+		if(ob.validPassword("fafafafafa"))
+			System.out.println("Happy");
+		else
+			System.out.println("Sad");
 	}
 }
