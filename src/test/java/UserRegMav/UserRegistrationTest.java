@@ -12,8 +12,9 @@ public class UserRegistrationTest {
 	@Test
 	public void checkFirstName()
 	{
-		try{if(ob.validFirstName("Ashok"))
-		System.out.println("Happy");
+		try{
+			if(ob.check_first_name.de("Ashok"))
+			System.out.println("Happy");
 		else
 			System.out.println("Sad");}
 		catch (Exception e)
@@ -24,7 +25,7 @@ public class UserRegistrationTest {
 	@Test
 	public void checkLastName()
 	{
-		try{if(ob.validLastName("Kumar"))
+		try{if(ob.check_last_name.de("Kumar"))
 			System.out.println("Happy");
 		else
 			System.out.println("Sad");}
@@ -43,7 +44,7 @@ public class UserRegistrationTest {
 	public void checkValidMobileNumber()
 	{
 		try{
-			if(ob.validMobileNumber("91 9831081745"))
+			if(ob.check_number.de("91 9831081745"))
 		
 			System.out.println("Happy");
 		else
@@ -57,7 +58,7 @@ public class UserRegistrationTest {
 	public void checkPassword()
 	{
 		try{
-			if(ob.validPassword("fafafafafa"))
+			if(ob.check_password.de("fafafafafa"))
 			System.out.println("Happy");
 		else
 			System.out.println("Sad");}
