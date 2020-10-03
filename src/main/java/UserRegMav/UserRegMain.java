@@ -4,66 +4,97 @@
 package UserRegMav;
 import java.util.*;
 import java.util.function.Predicate;
+@FunctionalInterface
+interface demo{
+//	String de(String mood);
+	boolean de (String mood) throws UserRegException;
+}
 public class UserRegMain {
 	
-	public boolean validFirstName(String first) throws UserRegException{
-		checkNullEmpty(first);
-		Predicate<String> pred= n -> n.matches("^[A-Z]{1}[a-z]{2,}");
-		if(pred.test(first))
-		return true;
-		else
-			throw new UserRegException(UserRegException.ExceptionType.INVALID_FIRSTNAME, "Enter proper first name");
-		
-	}
-	public void checkNullEmpty(String st) throws UserRegException
-	{
-		Predicate<String> check_empty= n -> n.matches("");
-		Predicate<String> check_null= n -> n.matches(null);
-		if(check_empty.test(st))
-			throw new UserRegException(UserRegException.ExceptionType.ENTERED_EMPTY, "Enter proper user input");
-		if(check_null.test(st))
-			throw new UserRegException(UserRegException.ExceptionType.ENTERED_NULL, "Enter proper user input");
+	demo check_first_name= (first_name) ->{
+		try {
+			if(first_name.length()==0)
+				throw new UserRegException(UserRegException.ExceptionType.ENTERED_EMPTY, "Enter proper user input");
+			if(first_name.equals(null))
+				throw new UserRegException(UserRegException.ExceptionType.ENTERED_NULL, "Enter proper user input");
+			if(first_name.matches("^[A-Z]{1}[a-z]{2,}"))
+				return true;
+			else
+				throw new UserRegException(UserRegException.ExceptionType.INVALID_FIRSTNAME, "Enter proper first name");
+		}
+		catch(Exception e)
+		{
+			e.printStackTrace();
+		}
+		return false;
+	};
 
-	}
-
-	public boolean validLastName(String last) throws UserRegException{
-		checkNullEmpty(last);
-		Predicate<String> pred= n -> n.matches("^[A-Z]{1}[a-z]{2,}");
-		if(pred.test(last))
-		return true;
-		
-		else
-			throw new UserRegException(UserRegException.ExceptionType.INVALID_LASTNAME, "Enter proper last name");
-		
-	}
-
-	public boolean emailValidity(String email) throws UserRegException{
-		checkNullEmpty(email);
-		Predicate<String> pred= n -> n.matches("^(abc)[_+.-]{0,1}[a-zA-Z]*[@]{1}(bridgelabz|gmail|yahoo|abc)[.]{1}(co|com|net)[.]{0,1}[a-z]{0,2}");
-		if(pred.test(email))
-		return true;		
-		else
-			throw new UserRegException(UserRegException.ExceptionType.INVALID_EMAIL, "Enter proper email");
-		
-	}
-
-	public boolean validMobileNumber(String number) throws UserRegException {
-		checkNullEmpty(number);
-		Predicate<String> pred=n -> n.matches("^[0-9]{2}\\s{1}[1-9]{1}[0-9]{9}");
-		if(pred.test(number))
-			return true;
-			
-		else
-			throw new UserRegException(UserRegException.ExceptionType.INVALID_MOBILE, "Enter proper mobile number");
-	}
-
-	public boolean validPassword(String pass) throws UserRegException{
-		checkNullEmpty(pass);
-		Predicate<String> pred=n -> n.matches("[A-Z]+[a-z]*[0-9]+[_.+-]{1}");
-		if(pred.test(pass)&&pass.length()>=8)
-			return true;
-		else
-			throw new UserRegException(UserRegException.ExceptionType.INVALID_PASSWORD, "Enter proper password");
-	}
-	
+	demo check_last_name= (last_name) ->{
+		try {
+			if(last_name.length()==0)
+				throw new UserRegException(UserRegException.ExceptionType.ENTERED_EMPTY, "Enter proper user input");
+			if(last_name.equals(null))
+				throw new UserRegException(UserRegException.ExceptionType.ENTERED_NULL, "Enter proper user input");
+			if(last_name.matches("^[A-Z]{1}[a-z]{2,}"))
+				return true;
+			else
+				throw new UserRegException(UserRegException.ExceptionType.INVALID_LASTNAME, "Enter proper last namet");
+		}
+		catch(Exception e)
+		{
+			e.printStackTrace();
+		}
+		return false;
+	};
+	demo check_email= (email) ->{
+		try {
+			if(email.length()==0)
+				throw new UserRegException(UserRegException.ExceptionType.ENTERED_EMPTY, "Enter proper user input");
+			if(email.equals(null))
+				throw new UserRegException(UserRegException.ExceptionType.ENTERED_NULL, "Enter proper user input");
+			if(email.matches("^(abc)[_+.-]{0,1}[a-zA-Z]*[@]{1}(bridgelabz|gmail|yahoo|abc)[.]{1}(co|com|net)[.]{0,1}[a-z]{0,2}"))
+				return true;
+			else
+				throw new UserRegException(UserRegException.ExceptionType.INVALID_EMAIL, "Enter proper email");
+		}
+		catch(Exception e)
+		{
+			e.printStackTrace();
+		}
+		return false;
+	};
+	demo check_number= (number) ->{
+		try {
+			if(number.length()==0)
+				throw new UserRegException(UserRegException.ExceptionType.ENTERED_EMPTY, "Enter proper user input");
+			if(number.equals(null))
+				throw new UserRegException(UserRegException.ExceptionType.ENTERED_NULL, "Enter proper user input");
+			if(number.matches("^[0-9]{2}\\s{1}[1-9]{1}[0-9]{9}"))
+				return true;
+			else
+				throw new UserRegException(UserRegException.ExceptionType.INVALID_MOBILE, "Enter proper mobile number");
+					}
+		catch(Exception e)
+		{
+			e.printStackTrace();
+		}
+		return false;
+	};
+	demo check_password= (pass) ->{
+		try {
+			if(pass.length()==0)
+				throw new UserRegException(UserRegException.ExceptionType.ENTERED_EMPTY, "Enter proper user input");
+			if(pass.equals(null))
+				throw new UserRegException(UserRegException.ExceptionType.ENTERED_NULL, "Enter proper user input");
+			if(pass.matches("[A-Z]+[a-z]*[0-9]+[_.+-]{1}")&&pass.length()>=8)
+				return true;
+			else
+				throw new UserRegException(UserRegException.ExceptionType.INVALID_PASSWORD, "Enter proper password");
+					}
+		catch(Exception e)
+		{
+			e.printStackTrace();
+		}
+		return false;
+	};
 }

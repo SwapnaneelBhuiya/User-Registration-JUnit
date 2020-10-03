@@ -34,7 +34,7 @@ public class ParameterUser {
 	public void checkEmail() throws UserRegException
 	{
 		try {
-		Assert.assertEquals(expectedres, user.emailValidity(email));
+		Assert.assertEquals(expectedres, user.check_email.de(email));
 		}
 		catch(Exception e)
 		{
